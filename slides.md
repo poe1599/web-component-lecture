@@ -157,7 +157,7 @@ layout: two-cols
 
 ::right::
 
-```javascript
+```js {monaco-run}
 class MyButton extends HTMLElement {
   constructor() {
     super();
