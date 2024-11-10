@@ -18,8 +18,9 @@ background: https://images.pexels.com/photos/574069/pexels-photo-574069.jpeg
 了解 Web Components 如何改變前端組件的製作與使用方式
 
 ---
-layout: image-left
+layout: with-image
 image: https://images.pexels.com/photos/380337/pexels-photo-380337.jpeg
+left: true
 ---
 
 ## 為什麼要了解 Web Components？
