@@ -9,6 +9,7 @@ mdc: true
 overviewSnapshots: true
 defaults:
   preload: true
+  image: https://images.pexels.com/photos/380337/pexels-photo-380337.jpeg
 transition: fade
 background: https://images.pexels.com/photos/574069/pexels-photo-574069.jpeg
 ---
@@ -19,7 +20,6 @@ background: https://images.pexels.com/photos/574069/pexels-photo-574069.jpeg
 
 ---
 layout: with-image
-image: https://images.pexels.com/photos/380337/pexels-photo-380337.jpeg
 left: true
 ---
 
@@ -36,8 +36,6 @@ left: true
   - 簡化樣式管理，減少樣式衝突
 
 ---
-layout: quote
----
 
 ## 什麼是 web component?
 
@@ -48,6 +46,8 @@ layout: quote
 Web Components 是一組由瀏覽器原生支持的技術，讓開發者可以創建自包含、可重用的 HTML 元素。它們不依賴於框架，且可以在任何應用中使用（例如 Vue、React、Angular 或純 HTML 網頁）。
  -->
 
+---
+layout: with-image
 ---
 
 ## Web Components 的三大核心技術
@@ -148,6 +148,9 @@ zoom: 0.9
 | **更新頻率**         | 標準較穩定，更新速度慢                                   | 框架和 UI Library 更新頻繁                 |
  -->
 
+---
+layout: with-image
+left: true
 ---
 
 ## Web Components 的適用情境

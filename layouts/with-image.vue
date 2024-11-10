@@ -26,12 +26,18 @@ const style = computed(() => handleBackground(props.image, false, props.backgrou
   <div class="relative h-full grid">
     <BackDecoration />
     <div class="grid w-full h-full grid-cols-12">
-      <div class="w-full h-full col-span-3" :class="[!props.left ? 'order-1' : '']" :style="style" />
       <div
-        class="slidev-layout default col-span-9"
+        class="w-full h-full col-span-3"
+        :class="[!props.left ? 'order-1' : '']"
+        :style="style"
+      />
+      <div
+        class="slidev-layout default grid col-span-9"
         :class="[!props.left ? 'order-0' : '', props.class]"
       >
-        <slot />
+        <div class="my-auto">
+          <slot />
+        </div>
       </div>
     </div>
   </div>
