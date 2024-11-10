@@ -170,6 +170,10 @@ class MyButton extends HTMLElement {
           padding: 10px 20px;
           border: none;
           border-radius: 4px;
+          cursor: pointer;
+        }
+        button:hover {
+          background: var(--button-bg-hover, #666);
         }
       </style>
       <button part="btn"><slot></slot></button>
@@ -191,6 +195,8 @@ layout: two-cols
 ```
 
 ::right::
+
+<my-button>Click Me!</my-button>
 
 ---
 
