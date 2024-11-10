@@ -1,21 +1,25 @@
 ---
 theme: default
-background: https://images.pexels.com/photos/574069/pexels-photo-574069.jpeg
 title: Web Components 簡介
 info: 
 description: 為設計師與前端工程師介紹 Web Components 的核心概念與應用
-class: text-center
 drawings:
   persist: false
-transition: slide-left
 mdc: true
 overviewSnapshots: true
+defaults:
+  preload: true
+transition: fade
+background: https://images.pexels.com/photos/574069/pexels-photo-574069.jpeg
 ---
 
 # Web Components 簡介
 
 了解 Web Components 如何改變前端組件的製作與使用方式
 
+---
+layout: image-left
+image: https://images.pexels.com/photos/380337/pexels-photo-380337.jpeg
 ---
 
 ## 為什麼要了解 Web Components？
@@ -30,6 +34,8 @@ overviewSnapshots: true
   - 標準化：可在任意框架中使用，提升開發效率
   - 簡化樣式管理，減少樣式衝突
 
+---
+layout: quote
 ---
 
 ## 什麼是 web component?
@@ -66,6 +72,9 @@ Web Components 是一組由瀏覽器原生支持的技術，讓開發者可以�
  -->
 
 ---
+layout: image-right
+image:
+---
 
 ## 為什麼會發展出 Web Components？
 
@@ -76,7 +85,7 @@ Web Components 是一組由瀏覽器原生支持的技術，讓開發者可以�
 
 ---
 
-### Web Components 的優點
+## Web Components 的優點
 
 - **高可重用性**：Web Components 提供了一種標準化的方式來構建可重用的組件，減少重複代碼。
 - **封裝性強**：使用 Shadow DOM 可以將組件的樣式和行為封裝起來，不會影響到其他部分。
@@ -86,7 +95,7 @@ Web Components 是一組由瀏覽器原生支持的技術，讓開發者可以�
 
 ---
 
-### Web Components 的缺點：
+## Web Components 的缺點：
 
 - **瀏覽器兼容性**：某些舊版瀏覽器可能需要 polyfill 來支持 Web Components。
 - **性能問題**：由於封裝特性，可能會導致性能問題或與其他庫的衝突。
@@ -112,6 +121,8 @@ Web Components 是一組由瀏覽器原生支持的技術，讓開發者可以�
   現代前端框架大多都提供框架內的狀態管理，能簡易快速的處理資訊與事件，web component 則需要自行實現這些功能。
  -->
 
+---
+zoom: 0.9
 ---
 
 ## Web Components UI Library vs. 特定框架下的 UI Library
@@ -153,7 +164,15 @@ layout: two-cols
 
 ## Web Components 範例
 
-### 創建一個按鈕組件
+- 創建一個按鈕組件
+
+- 使用按鈕組件
+
+```html
+<my-button>Click Me!</my-button>
+```
+
+<my-button>Click Me!</my-button>
 
 ::right::
 
@@ -183,20 +202,6 @@ class MyButton extends HTMLElement {
 
 customElements.define('my-button', MyButton);
 ```
-
----
-layout: two-cols
----
-
-### 使用該組件
-
-```html
-<my-button>Click Me!</my-button>
-```
-
-::right::
-
-<my-button>Click Me!</my-button>
 
 ---
 

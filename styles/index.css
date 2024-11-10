@@ -1,0 +1,39 @@
+:root {
+  --slidev-code-margin: 1rem 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+}
+
+li {
+  margin: 0.5rem;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+.slidev-layout.two-columns {
+  gap: 2rem;
+}
+
+
+/* 首頁 */
+[data-slidev-no="1"] {
+  .h-full {
+    padding: 0 4rem;
+
+  }
+
+  h1 {
+    margin-top: 15rem;
+    color: rgba(256, 256, 256, 0.9);
+    position: relative;
+  }
+
+  p {
+    margin: 1rem 0 !important;
+  }
+}
