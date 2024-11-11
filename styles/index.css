@@ -19,6 +19,10 @@ ol {
   gap: 2rem;
 }
 
+.slidev-monaco-container-inner {
+  max-height: 480px !important;
+}
+
 
 /* 首頁 */
 [data-slidev-no="1"] {

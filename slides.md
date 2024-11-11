@@ -185,7 +185,7 @@ class MyButton extends HTMLElement {
     this.shadowRoot.innerHTML = `
       <style>
         button {
-          background: var(--button-bg, #333);
+          background: var(--button-bg, #14b8a6);
           color: var(--button-color, #fff);
           padding: 10px 20px;
           border: none;
@@ -193,7 +193,7 @@ class MyButton extends HTMLElement {
           cursor: pointer;
         }
         button:hover {
-          background: var(--button-bg-hover, #666);
+          background: var(--button-bg-hover, #0f766e);
         }
       </style>
       <button part="btn"><slot></slot></button>
@@ -212,14 +212,23 @@ customElements.define('my-button', MyButton);
 
 ```html
 <style>
-  .U-button:host {
+  .A-button {
     --button-bg: coral;
-    --button-color: white;
+    --button-bg-hover: orange;
   }
 </style>
 
-<my-button class="U-button">變色按鈕</my-button>
+<my-button class="A-button">變色按鈕</my-button>
 ```
+
+<style>
+  .A-button {
+    --button-bg: coral;
+    --button-bg-hover: orange;
+  } 
+</style>
+
+<my-button class="A-button">變色按鈕</my-button>
 
 ---
 
@@ -229,21 +238,84 @@ customElements.define('my-button', MyButton);
 
 ```html
 <style>
-  .U-button::part(btn) {
-    padding: 24px;
-    border: 1px solid green;
+  .B-button::part(btn) {
+    padding: 8px 12px;
+    border-radius: 0;
+    outline: 4px solid lightgreen;
   }
 </style>
 
-<my-button class="U-button">變型按鈕</my-button>
+<my-button class="B-button">變型按鈕</my-button>
 ```
 
+<style>
+  .B-button::part(btn) {
+    padding: 8px 12px;
+    border-radius: 0;
+    outline: 4px solid lightgreen;
+  }
+</style>
+
+<my-button class="B-button">變型按鈕</my-button>
+
 ---
+layout: two-cols
+zoom: 0.9
+---
+
+```js {monaco-run}
+class TestButton extends HTMLElement {
+  constructor() {
+    super();
+    this.attachShadow({ mode: 'open' });
+    this.render();
+  }
+
+  static get observedAttributes() {
+    return ['background'];
+  }
+  
+  attributeChangedCallback(name, oldValue, newValue) {
+    this.render();
+  }
+
+  render() {
+    const background = this.getAttribute('background') || 'green';
+    this.shadowRoot.innerHTML = `
+      <style>
+        button {
+          background: ${background};
+          color: white;
+        }
+      </style>
+      <button><slot></slot></button>
+    `;
+  }
+}
+
+customElements.define('test-button', TestButton);
+```
+
+::right::
 
 ## 外部樣式控制
 
 - 方法三：使用 Attributes
 直接使用屬性為組件提供樣式或狀態
+
+```html
+<test-button>按鈕 A</test-button>
+
+<test-button background="red">按鈕 B</test-button>
+
+<test-button background="#3b82f6">按鈕 C</test-button>
+```
+
+<test-button>按鈕 A</test-button>
+
+<test-button background="red">按鈕 B</test-button>
+
+<test-button background="#3b82f6">按鈕 C</test-button>
 
 ---
 
