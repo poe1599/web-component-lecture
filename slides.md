@@ -221,6 +221,8 @@ customElements.define('ex-button1', ExButton1);
 ```
 
 ---
+layout: with-image
+---
 
 ## 外部樣式控制
 
@@ -246,6 +248,8 @@ customElements.define('ex-button1', ExButton1);
 
 <ex-button1 class="A-button">變色按鈕</ex-button1>
 
+---
+layout: with-image
 ---
 
 ## 外部樣式控制
@@ -414,8 +418,10 @@ customElements.define('ex-pool-ball', ExPoolBall);
 ```
 
 ---
-layout: two-cols
+layout: with-image
 ---
+
+## 無效的外部樣式控制
 
 - 無效案例一：選擇 Shadow Dom 內部 class
 
@@ -447,7 +453,11 @@ layout: two-cols
 <ex-pool-ball>7</ex-pool-ball>
 <ex-pool-ball class="blackBall">8</ex-pool-ball>
 
-::right::
+---
+layout: with-image
+---
+
+## 無效的外部樣式控制
 
 - 無效案例二：透過`::part`選擇器串聯其他選擇器
 
@@ -467,6 +477,9 @@ layout: two-cols
 </style>
 <ex-pool-ball class="redTextBall">R</ex-pool-ball>
 
+---
+layout: with-image
+left: true
 ---
 
 ## 如何快速開發 Web Components?
