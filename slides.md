@@ -9,9 +9,9 @@ mdc: true
 overviewSnapshots: true
 defaults:
   preload: true
-  image: https://images.pexels.com/photos/380337/pexels-photo-380337.jpeg
+  image: /images/banner1.jpeg
 transition: fade
-background: https://images.pexels.com/photos/574069/pexels-photo-574069.jpeg
+background: /images/cover1.jpeg
 ---
 
 # Web Components 簡介
