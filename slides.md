@@ -3,6 +3,7 @@ theme: default
 title: Web Components 簡介
 info: 
 description: 為設計師與前端工程師介紹 Web Components 的核心概念與應用
+author: poe1599@gmail.com
 drawings:
   persist: false
 mdc: true
