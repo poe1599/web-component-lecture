@@ -6,6 +6,7 @@ description: 為設計師與前端工程師介紹 Web Components 的核心概念
 drawings:
   persist: false
 mdc: true
+lineNumbers: true
 overviewSnapshots: true
 fonts:
   sans: Roboto
