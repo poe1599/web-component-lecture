@@ -272,7 +272,6 @@ customElements.define('ex-button1', ExButton1);
 
 ---
 layout: two-cols
-zoom: 0.9
 ---
 
 ```js {monaco-run}
@@ -328,6 +327,141 @@ customElements.define('ex-button2', ExButton2);
 <ex-button2 background="red">按鈕 B</ex-button2>
 
 <ex-button2 background="#3b82f6">按鈕 C</ex-button2>
+
+---
+layout: two-cols
+---
+
+## 無效的外部樣式控制
+
+- 有效範例
+
+```html
+<style>
+  .blueBall::part(circle-outer) {
+    background: #0e3ecf;
+  }
+
+  .redBall::part(circle-outer):hover {
+    background: red;
+  }
+</style>
+
+<ex-pool-ball>9</ex-pool-ball>
+<ex-pool-ball class="blueBall">10</ex-pool-ball>
+<ex-pool-ball class="redBall">11</ex-pool-ball>
+```
+
+<style>
+  .blueBall::part(circle-outer) {
+    background: #0e3ecf;
+  }
+
+  .redBall::part(circle-outer):hover {
+    background: red;
+  }
+</style>
+
+<ex-pool-ball>9</ex-pool-ball>
+<ex-pool-ball class="blueBall">10</ex-pool-ball>
+<ex-pool-ball class="redBall">11</ex-pool-ball>
+
+::right::
+
+```js {monaco-run}
+class ExPoolBall extends HTMLElement {
+  constructor() {
+    super();
+    this.attachShadow({ mode: 'open' });
+    this.shadowRoot.innerHTML = `
+      <style>
+        .outerCircle {
+          width: 48px;
+          height: 48px;
+          background: #ff9b00;
+        }
+
+        .innerCircle {
+          width: 20px;
+          height: 20px;
+          background: white;
+          font-size: 14px;
+          color: black;
+        }
+
+        .outerCircle,
+        .innerCircle {
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          flex: 0 0 auto;
+          border-radius: 50%;
+
+        }
+      </style>
+      <span class="outerCircle" part="circle-outer">
+        <span class="innerCircle"><slot></slot></span>
+      </span>
+    `;
+  }
+}
+
+customElements.define('ex-pool-ball', ExPoolBall);
+```
+
+---
+layout: two-cols
+---
+
+- 無效案例一：選擇 Shadow Dom 內部 class
+
+```html
+<style>
+  .outerCircle {
+    background: brown;
+  }
+
+  .blackBall .outerCircle {
+    background: black;
+  }
+</style>
+
+<ex-pool-ball>7</ex-pool-ball>
+<ex-pool-ball class="blackBall">8</ex-pool-ball>
+```
+
+<style>
+  .outerCircle {
+    background: brown;
+  }
+
+  .blackBall .outerCircle {
+    background: black;
+  }
+</style>
+
+<ex-pool-ball>7</ex-pool-ball>
+<ex-pool-ball class="blackBall">8</ex-pool-ball>
+
+::right::
+
+- 無效案例二：透過`::part`選擇器串聯其他選擇器
+
+```html
+<style>
+  .redTextBall::part(circle-outer) .innerCircle {
+    color: red;
+  }
+</style>
+<ex-pool-ball class="redTextBall">R</ex-pool-ball>
+```
+
+<style>
+  .redTextBall::part(circle-outer) .innerCircle {
+    color: red;
+  }
+</style>
+<ex-pool-ball class="redTextBall">R</ex-pool-ball>
 
 ---
 
