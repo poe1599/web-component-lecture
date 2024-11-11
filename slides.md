@@ -47,19 +47,19 @@ left: true
   - 支持 CSS 自訂屬性，便於靈活設計
 
 - **前端工程師的好處**
-  - 封裝性：更清晰的模組結構，方便維護
+  - 封裝性：清晰的模組結構，方便維護
   - 標準化：可在任意框架中使用，提升開發效率
   - 簡化樣式管理，減少樣式衝突
 
 ---
 
-## 什麼是 web component?
+## 什麼是 Web Components?
 
 - **Web Components** 是一組瀏覽器內建的 API，允許創建可重用的自定義 HTML 元件。
 - 由三大核心技術構成。
 
 <!-- 
-Web Components 是一組由瀏覽器原生支持的技術，讓開發者可以創建自包含、可重用的 HTML 元素。它們不依賴於框架，且可以在任何應用中使用（例如 Vue、React、Angular 或純 HTML 網頁）。
+Web Components 是一組由瀏覽器原生支持的技術，讓開發者可以自行創建可重用的 HTML 元素。它們不依賴於框架，且可以在任何應用中使用（例如 Vue、React、Angular 或純 HTML 網頁）。
  -->
 
 ---
@@ -111,11 +111,11 @@ layout: with-image
 
 ## Web Components 的缺點：
 
-- **瀏覽器兼容性**：某些舊版瀏覽器可能需要 polyfill 來支持 Web Components。
 - **性能問題**：由於封裝特性，可能會導致性能問題或與其他庫的衝突。
 - **學習曲線**：對於不熟悉 Web Components 的開發者來說，可能需要一些時間來學習和適應。
 - **SEO 問題**：在某些情況下，使用 Web Components 可能會影響 SEO，特別是在缺少 JavaScript 或 Web API 的情況下。
 - **Shadow DOM 限制**：雖然 Shadow DOM 提供了封裝性，但在需要從外部訪問內部 DOM 或樣式時，可能會遇到困難。
+- ~~**瀏覽器兼容性**：某些舊版瀏覽器可能需要 polyfill 來支持 Web Components。~~
 
 <!-- 
 - **樣式覆寫與自訂困難**
@@ -141,7 +141,7 @@ zoom: 0.9
 
 ## Web Components UI Library vs. 特定框架下的 UI Library
 
-| 特性                  | Web Components UI Library                              | 特定框架下的 UI Library                    |
+| 特性                  | **Web Components UI Library**                          | **特定框架下的 UI Library**                |
 |-----------------------|--------------------------------------------------------|-------------------------------------------|
 | **跨框架使用**       | 可以在任意框架或無框架的情況下使用                       | 只能在特定框架中使用                       |
 | **樣式隔離**         | 預設使用 Shadow DOM，具備樣式隔離                        | 依賴框架的樣式方案，無內建隔離             |
@@ -480,5 +480,4 @@ layout: two-cols
 - Haunted
 - Vue
 
-Compare Similar NPM Packages
-- https://npm-compare.com/@microsoft/fast-element,@stencil/core,atomico,haunted,hybrids,lit,vue/#timeRange=THREE_YEARS
+[Compare Similar NPM Packages](https://npm-compare.com/@microsoft/fast-element,@stencil/core,atomico,haunted,hybrids,lit,vue/#timeRange=THREE_YEARS)
