@@ -7,6 +7,10 @@ drawings:
   persist: false
 mdc: true
 overviewSnapshots: true
+fonts:
+  sans: Roboto
+  serif: Roboto Slab
+  mono: Fira Code
 defaults:
   preload: true
   image: /images/banner1.jpeg
