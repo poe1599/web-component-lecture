@@ -18,6 +18,18 @@ background: https://images.pexels.com/photos/574069/pexels-photo-574069.jpeg
 
 了解 Web Components 如何改變前端組件的製作與使用方式
 
+<style>
+  h1 {
+    margin-top: 15rem;
+    color: rgba(256, 256, 256, 0.9);
+    position: relative;
+  }
+
+  p {
+    margin: 1rem 0 !important;
+  }
+</style>
+
 ---
 layout: with-image
 left: true

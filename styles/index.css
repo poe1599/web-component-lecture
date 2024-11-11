@@ -22,22 +22,3 @@ ol {
 .slidev-monaco-container-inner {
   max-height: 480px !important;
 }
-
-
-/* 首頁 */
-[data-slidev-no="1"] {
-  .h-full {
-    padding: 0 4rem;
-
-  }
-
-  h1 {
-    margin-top: 15rem;
-    color: rgba(256, 256, 256, 0.9);
-    position: relative;
-  }
-
-  p {
-    margin: 1rem 0 !important;
-  }
-}
