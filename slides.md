@@ -182,15 +182,15 @@ layout: two-cols
 - 使用按鈕組件
 
 ```html
-<my-button>Click Me!</my-button>
+<ex-button1>Click Me!</ex-button1>
 ```
 
-<my-button>Click Me!</my-button>
+<ex-button1>Click Me!</ex-button1>
 
 ::right::
 
 ```js {monaco-run}
-class MyButton extends HTMLElement {
+class ExButton1 extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
@@ -213,7 +213,7 @@ class MyButton extends HTMLElement {
   }
 }
 
-customElements.define('my-button', MyButton);
+customElements.define('ex-button1', ExButton1);
 ```
 
 ---
@@ -230,7 +230,7 @@ customElements.define('my-button', MyButton);
   }
 </style>
 
-<my-button class="A-button">變色按鈕</my-button>
+<ex-button1 class="A-button">變色按鈕</ex-button1>
 ```
 
 <style>
@@ -240,7 +240,7 @@ customElements.define('my-button', MyButton);
   } 
 </style>
 
-<my-button class="A-button">變色按鈕</my-button>
+<ex-button1 class="A-button">變色按鈕</ex-button1>
 
 ---
 
@@ -257,7 +257,7 @@ customElements.define('my-button', MyButton);
   }
 </style>
 
-<my-button class="B-button">變型按鈕</my-button>
+<ex-button1 class="B-button">變型按鈕</ex-button1>
 ```
 
 <style>
@@ -268,7 +268,7 @@ customElements.define('my-button', MyButton);
   }
 </style>
 
-<my-button class="B-button">變型按鈕</my-button>
+<ex-button1 class="B-button">變型按鈕</ex-button1>
 
 ---
 layout: two-cols
@@ -276,7 +276,7 @@ zoom: 0.9
 ---
 
 ```js {monaco-run}
-class TestButton extends HTMLElement {
+class ExButton2 extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
@@ -305,7 +305,7 @@ class TestButton extends HTMLElement {
   }
 }
 
-customElements.define('test-button', TestButton);
+customElements.define('ex-button2', ExButton2);
 ```
 
 ::right::
@@ -316,18 +316,18 @@ customElements.define('test-button', TestButton);
 直接使用屬性為組件提供樣式或狀態
 
 ```html
-<test-button>按鈕 A</test-button>
+<ex-button2>按鈕 A</ex-button2>
 
-<test-button background="red">按鈕 B</test-button>
+<ex-button2 background="red">按鈕 B</ex-button2>
 
-<test-button background="#3b82f6">按鈕 C</test-button>
+<ex-button2 background="#3b82f6">按鈕 C</ex-button2>
 ```
 
-<test-button>按鈕 A</test-button>
+<ex-button2>按鈕 A</ex-button2>
 
-<test-button background="red">按鈕 B</test-button>
+<ex-button2 background="red">按鈕 B</ex-button2>
 
-<test-button background="#3b82f6">按鈕 C</test-button>
+<ex-button2 background="#3b82f6">按鈕 C</ex-button2>
 
 ---
 
