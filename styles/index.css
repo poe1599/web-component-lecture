@@ -19,6 +19,17 @@ ol {
   gap: 2rem;
 }
 
+/* 
+* monaco 編輯器的一屏高度限制
+*/
 .slidev-monaco-container-inner {
   max-height: 420px !important;
+}
+
+/* 
+* 講者模式的視窗分配
+*/
+.grid-container.layout1 {
+  grid-template-columns: 1fr 0.8fr 1.2fr !important;
+  grid-template-rows: 0.8fr 2.2fr min-content !important;
 }
