@@ -250,6 +250,13 @@ class ExButton1 extends HTMLElement {
 customElements.define('ex-button1', ExButton1);
 ```
 
+<!-- 
+- 簡報內示範使用 innerHTML 處理 html 結構
+- 以下連結示範使用 `<template>` 處理 html 結構    
+  [MDN 使用 template 創建 Web Components](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_templates_and_slots)  
+  由於使用 `<template>` 不能取用直接取用 class 內的變數或 function，僅能作為靜態模板，故較不會採用。
+ -->
+
 ---
 layout: with-image
 ---
