@@ -328,7 +328,7 @@ class ExButton2 extends HTMLElement {
   }
 
   static get observedAttributes() {
-    return ['background'];
+    return ['data-background'];
   }
   
   attributeChangedCallback(name, oldValue, newValue) {
@@ -336,7 +336,7 @@ class ExButton2 extends HTMLElement {
   }
 
   render() {
-    const background = this.getAttribute('background') || 'green';
+    const background = this.getAttribute('data-background') || 'green';
     this.shadowRoot.innerHTML = `
       <style>
         button {
@@ -362,16 +362,16 @@ customElements.define('ex-button2', ExButton2);
 ```html
 <ex-button2>按鈕 A</ex-button2>
 
-<ex-button2 background="red">按鈕 B</ex-button2>
+<ex-button2 data-background="red">按鈕 B</ex-button2>
 
-<ex-button2 background="#3b82f6">按鈕 C</ex-button2>
+<ex-button2 data-background="#3b82f6">按鈕 C</ex-button2>
 ```
 
 <ex-button2>按鈕 A</ex-button2>
 
-<ex-button2 background="red">按鈕 B</ex-button2>
+<ex-button2 data-background="red">按鈕 B</ex-button2>
 
-<ex-button2 background="#3b82f6">按鈕 C</ex-button2>
+<ex-button2 data-background="#3b82f6">按鈕 C</ex-button2>
 
 ---
 layout: two-cols
