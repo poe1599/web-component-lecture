@@ -166,7 +166,7 @@ zoom: 0.8
  -->
 
 ---
-zoom: 0.9
+zoom: 0.8
 ---
 
 ## Web Components UI Library vs. 特定框架下的 UI Library
