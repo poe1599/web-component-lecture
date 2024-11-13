@@ -454,6 +454,12 @@ class ExPoolBall extends HTMLElement {
 customElements.define('ex-pool-ball', ExPoolBall);
 ```
 
+<!-- 
+本頁先示範可行的外部樣式控制，採用簡單的 html 結構與樣式來示範。
+這是一個撞球的 web component，由一個大圓 outerCircle 內含小圓 innerCircle 組成，
+並只有在大圓設置 `part="circle-outer`。
+ -->
+
 ---
 layout: with-image
 ---
