@@ -549,20 +549,28 @@ layout: two-cols
 ### SCSS
 
 - SCSS 是 CSS 的預處理器，透過變數、嵌套、mixin 等功能來提升樣式的模組化和重用性。
-- PrimeVue 組件即是透過 SCSS 變數實現 design token。(v3)
+
+  - PrimeVue
+    - 組件透過 SCSS 變數實現 design token。(v3)
+    - 部分 scss 變數會再轉成 css 變數暴露給外部。
 
 <button class="p-button">Submit</button>
 
 <style>
   .p-button {
     color: #ffffff;
-    background: #10b981;
-    border: 1px solid #10b981;
+    background: #06b6d4;
+    border: 1px solid #06b6d4;
     padding: 0.75rem 1.25rem;
     font-size: 1rem;
     transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
     border-radius: 6px;
     outline-color: transparent;
+  }
+
+  .p-button:hover {
+    background: #0891b2;
+    border: 1px solid #0891b2;
   }
 </style>
 
@@ -571,21 +579,29 @@ layout: two-cols
 ````md magic-move {lines: true}
 ```html
 // html
-<button class="B-button">Submit</button>
+<button class="B-button">
+  Submit
+</button>
 ```
 
 ```scss
 // scss 變數
 $primaryColor: #06b6d4;
+$primaryDarkColor: #0891b2;
 ...
 
 $buttonBg: $primaryColor;
+$buttonHoverBg: $primaryDarkColor;
 ...
 
 // 定義按鈕樣式
 .B-button {
   background: $buttonBg;
   ...
+
+  &:hover {
+    background: $buttonHoverBg;
+  }
 }
 
 // 暴露 css 變數給外部使用
@@ -598,12 +614,17 @@ $buttonBg: $primaryColor;
 ```css
 /* 編譯為 css 以後 */
 .B-button {
-  background: #10b981;
+  background: #06b6d4;
+  ...
+}
+
+.B-button:hover {
+  background: #0891b2;
   ...
 }
 
 :root {
-  --primary-color: #10b981;
+  --primary-color: #06b6d4;
   ...
 }
 ```
