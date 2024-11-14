@@ -537,3 +537,63 @@ left: true
 - Vue
 
 [Compare Similar NPM Packages](https://npm-compare.com/@microsoft/fast-element,@stencil/core,atomico,haunted,hybrids,lit,vue/#timeRange=THREE_YEARS)
+
+---
+
+## 團隊目前專案使用的樣式管理方案
+
+---
+layout: two-cols
+---
+
+### SCSS
+
+- SCSS 是 CSS 的預處理器，透過變數、嵌套、mixin 等功能來提升樣式的模組化和重用性。
+- PrimeVue 組件即是透過 SCSS 變數實現 design token。(v3)
+
+<button class="p-button">Submit</button>
+
+<style>
+  .p-button {
+    color: #ffffff;
+    background: #10b981;
+    border: 1px solid #10b981;
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    border-radius: 6px;
+    outline-color: transparent;
+  }
+</style>
+
+::right::
+
+````md magic-move {lines: true}
+```html
+// html
+<button class="B-button">Submit</button>
+```
+
+```scss
+// scss 變數
+$primaryColor: #06b6d4;
+...
+
+$buttonBg: $primaryColor;
+...
+
+// 定義按鈕樣式
+.B-button {
+  background: $buttonBg;
+  ...
+}
+```
+
+```css
+/* 編譯為 css 以後 */
+.B-button {
+  background: #10b981;
+  ...
+}
+```
+````
