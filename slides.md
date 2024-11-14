@@ -587,12 +587,23 @@ $buttonBg: $primaryColor;
   background: $buttonBg;
   ...
 }
+
+// 暴露 css 變數給外部使用
+:root {
+  --primary-color: #{$primaryColor};
+  ...
+}
 ```
 
 ```css
 /* 編譯為 css 以後 */
 .B-button {
   background: #10b981;
+  ...
+}
+
+:root {
+  --primary-color: #10b981;
   ...
 }
 ```
