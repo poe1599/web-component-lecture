@@ -629,3 +629,196 @@ $buttonHoverBg: $primaryDarkColor;
 }
 ```
 ````
+
+<!-- PrimeVue 按鈕範例使用 Severity 為預設的 Button -->
+
+---
+
+### UnoCss
+
+- UnoCSS 是 Utility-first 原子化 CSS 框架，透過配置生成最小化的樣式文件。只生成實際使用的樣式，減少不必要的 CSS。
+- 專案內採用 theme 與 shortcut 來管理樣式。
+  - theme 對應到 design token
+  - shortcut 則是一個或多個樣式的設定 class
+
+---
+layout: two-cols
+leftClass: col-span-5
+rightClass: col-span-7
+---
+
+#### UnoCss theme
+
+華美投信/華昌投信
+
+- 專案已建置 global 的 theme.ts 來設置不同層級的 token。
+- 新專案建置自身 project 的 theme.ts 時:
+  - 繼承 global theme.ts 設定
+  - 僅需調整不同配置的 token 參數
+  - 如有必要可以擴增中間層的 token
+  - 不增減組件架構 token (原則上)
+
+<button class="basicButton g-body1">
+  Submit
+</button>
+
+<style>
+  .basicButton {
+    /* data-styleType=normal-primary */
+    --un-border-opacity: 1;
+    border-color: rgb(197 22 22 / var(--un-border-opacity));
+    --un-text-opacity: 1;
+    color: rgb(255 255 255 / var(--un-text-opacity));
+    background: linear-gradient(90deg, #C51616 0, #C51616 100%);
+    /* data-size=a */
+    min-height: 32px;
+    min-width: 64px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 11px;
+    padding-right: 11px;
+    text-align: center;
+    /* data-animate=true */
+    transition-duration: 200ms;
+    transform: scale(1);
+    /* basicButton */
+    border-width: 1px;
+    border-radius: 4px;
+    border-style: solid;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    margin: 0;
+  }
+
+  .basicButton:hover {
+    --un-border-opacity: 1;
+    border-color: rgb(197 22 22 / var(--un-border-opacity));
+    --un-text-opacity: 1;
+    color: rgb(255 255 255 / var(--un-text-opacity));
+    background: linear-gradient(90deg, #E61919, #A01211);
+  }
+
+  .g-body1 {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+  }
+</style>
+
+
+::right::
+
+````md magic-move {lines: true}
+```html
+// html
+<button class="basicButton g-body1">
+  Submit
+</button>
+```
+
+```ts
+// theme.ts
+// 原子 color token
+const colors = {
+  primary: {
+    ...
+    '40': '#E61919',
+    '50': '#C51616',
+    '60': '#A01211',
+    ...
+  },
+  ...
+}
+```
+
+```ts
+// theme.ts
+// 中間層 color token
+const tokensColors = {
+  surfaceColor: {
+    primary: {
+      enable: colors.primary['50'],
+      ...
+    },
+    ...
+  },
+  ...
+}
+
+// 中間層 color token
+const linearColors = {
+  surfaceColor: {
+    linear01: `linear-gradient(90deg, 
+    ${colors.primary['40']},
+    ${colors.primary['60']})`,
+  },
+  ...
+}
+```
+
+```ts
+// theme.ts
+// 組件 color token
+// 最終套用到組件上 (一個蘿蔔一個坑)
+const componentsColors = {
+  button: {
+    surfaceColor: {
+      normal: {
+        primary: {
+          enable: tokensColors.surfaceColor.primary.enable,
+          hover: linearColors.surfaceColor.linear01,
+          ...
+        },
+        ...
+      },
+      ...
+    },
+    ...
+  },
+  ...
+}
+```
+
+```scss
+// 在 scss 內使用 UnoCSS 提供的語法
+// 定義組件按鈕樣式
+.basicButton {
+  background: linear-gradient(
+    90deg,
+    theme('colors.button.surfaceColor.normal.primary.enable') 0,
+    theme('colors.button.surfaceColor.normal.primary.enable') 100%
+  );
+  ...
+
+  // 按鈕手機版以上才有 hover 背景
+  @screen sm {
+    &:hover {
+      background: theme('colors.button.surfaceColor.normal.primary.hover');
+    }
+  }
+}
+```
+
+```css
+/* 編譯為 css 以後 */
+.basicButton {
+  background: linear-gradient(90deg, #C51616 0, #C51616 100%);
+  ...
+}
+
+.basicButton:hover {
+  background: linear-gradient(90deg, #E61919, #A01211);
+  ...
+}
+```
+````
+
+<!-- 
+- 中間層的 token 可以根據情況擴充
+- 如有特別調整，組件 token 也可以改成引用原子 token
+- 原則上不增減組件 token，如有增減就代表原子組件要升版
+- UnoCSS 範例使用華昌專案 type 為 normal-primary 的 BasicButton。
+ -->
