@@ -17,6 +17,10 @@ const props = defineProps({
     type: String,
     default: 'cover',
   },
+  verticalMiddle: {
+    type: Boolean,
+    default: true,
+  },
 })
 
 const style = computed(() => handleBackground(props.image, false, props.backgroundSize))
@@ -31,11 +35,8 @@ const style = computed(() => handleBackground(props.image, false, props.backgrou
         :class="[!props.left ? 'order-1' : '']"
         :style="style"
       />
-      <div
-        class="slidev-layout default grid col-span-9"
-        :class="[!props.left ? 'order-0' : '', props.class]"
-      >
-        <div class="my-auto">
+      <div class="slidev-layout default grid col-span-9" :class="[!props.left ? 'order-0' : '']">
+        <div :class="[verticalMiddle ? 'my-auto' : '', props.class]">
           <slot />
         </div>
       </div>
