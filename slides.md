@@ -657,7 +657,7 @@ leftClass: col-span-5
 rightClass: col-span-7
 ---
 
-#### UnoCss theme
+#### UnoCSS Theme
 
 華美投信/華昌投信
 
@@ -832,3 +832,107 @@ const componentsColors = {
 - 原則上不增減組件 token，如有增減就代表原子組件要升版
 - UnoCSS 範例使用華昌專案 type 為 normal-primary 的 BasicButton。
  -->
+
+---
+layout: two-cols
+leftClass: col-span-5
+rightClass: col-span-7
+---
+
+#### UnoCSS Shortcut
+
+華美投信/華昌投信
+
+- 專案已建置 global 的 shortcut.ts 來設置文字、按鈕尺寸等組合。
+- 新專案建置自身 project 的 shortcut.ts 時:
+  - 繼承 global shortcut.ts 設定
+  - 僅需調整不同配置的 shortcut 內容
+  - 如有必要可以擴增(視情境升版)
+
+::right::
+
+````md magic-move {lines: true}
+```ts{*|8-10}
+// shortcut.ts
+export default {
+  ...
+  title2: `font-(size-20px 700) line-height-28px 
+           sm:(font-(size-24px 700) line-height-32px) 
+           md:(font-(size-30px 700) line-height-36px)`,
+  ...
+  body1: `font-(size-16px 400) line-height-24px 
+          sm:(font-(size-16px 400) line-height-24px) 
+          md:(font-(size-16px 400) line-height-24px)`
+  ...
+}
+```
+
+```css
+/* 編譯為 css 以後 */
+.g-body1 {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px
+}
+
+/* sm: 768px 以上 */
+@media (min-width: 768px) {
+  .g-body1 {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+  }
+}
+
+/* md: 1280px 以上 */
+@media (min-width: 1280px) {
+  .g-body1 {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+  }
+}
+```
+
+```ts{*|4-6}
+// shortcut.ts
+export default {
+  ...
+  title2: `font-(size-20px 700) line-height-28px 
+           sm:(font-(size-24px 700) line-height-32px) 
+           md:(font-(size-30px 700) line-height-36px)`,
+  ...
+  body1: `font-(size-16px 400) line-height-24px 
+          sm:(font-(size-16px 400) line-height-24px) 
+          md:(font-(size-16px 400) line-height-24px)`
+  ...
+}
+```
+
+```css
+/* 編譯為 css 以後 */
+.title2 {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px
+}
+
+/* sm: 768px 以上 */
+@media (min-width: 768px) {
+  .title2 {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px
+  }
+}
+
+/* md: 1280px 以上 */
+@media (min-width: 1280px) {
+  .title2 {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 36px
+  }
+}
+```
+````
