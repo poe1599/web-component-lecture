@@ -1007,3 +1007,107 @@ export default {
 }
 ```
 ````
+
+---
+layout: two-cols
+leftClass: col-span-5
+rightClass: col-span-7
+---
+
+### PrimeVue + UnoCSS
+
+新底層
+- PrimeVue 組件樣式由 PrimeVue 自身透過 SCSS 管理。
+- 封裝過的原子組件樣式由 UnoCSS 搭配 PrimeVue 管理。
+
+*****
+<br/>
+<div class="T-block">T-block</div>
+
+<style>
+  /* 為了處理顯示，這裡與實際情況不同 */
+  .T-block {
+    /*  */
+    --primary-color: #6366F1;
+    --primary-active-color: #4338CA;
+    --primary-color-text: #ffffff;
+    --primary-light-color: #C7D2FE;
+
+
+    /*  */
+    color: var(--primary-color-text);
+    background: var(--primary-color);
+    padding: 16px;
+  }
+</style>
+
+::right::
+
+````md magic-move {lines: true}
+```scss
+// PrimeVue SCSS
+// theme.scss
+$primaryColor: #6366F1;
+$primaryLightColor: #C7D2FE;
+$primaryDarkColor: #4F46E5;
+$primaryDarkerColor: #4338CA;
+$primaryTextColor: #ffffff;
+
+// variable.scss
+:root {
+  ...
+  --primary-color: #{$primaryColor};
+  --primary-active-color: #{$primaryDarkerColor};
+  --primary-color-text: #{$primaryTextColor};
+  --primary-light-color: #{$primaryLightColor};
+  ...
+}
+```
+
+```ts
+// UnoCSS theme.ts
+const primeVueColors = {
+  ...
+  primary: {
+    ...
+    color: 'var(--primary-color)',
+    active: 'var(--primary-active-color)',
+    text: 'var(--primary-color-text)',
+    light: 'var(--primary-light-color)',
+  },
+  ...
+}
+```
+
+```scss
+// 專案的組件或領域的 SCSS
+.T-block {
+  @apply text-primary-text bg-primary-color p-xl;
+}
+```
+
+```css
+/* UnoCSS 編譯成 CSS */
+.T-block {
+  color: var(--primary-color-text);
+  background: var(--primary-color);
+  padding: 16px;
+}
+
+/* PrimeVue 編譯成 CSS */
+:root {
+  --primary-color: #6366F1;
+  --primary-active-color: #4338CA;
+  --primary-color-text: #ffffff;
+  --primary-light-color: #C7D2FE;
+}
+```
+
+```html
+// html
+<div class="T-block">
+  T-block
+</div>
+```
+
+````
