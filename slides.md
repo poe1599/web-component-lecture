@@ -634,12 +634,22 @@ $buttonHoverBg: $primaryDarkColor;
 
 ---
 
-### UnoCss
+### UnoCSS
 
 - UnoCSS 是 Utility-first 原子化 CSS 框架，透過配置生成最小化的樣式文件。只生成實際使用的樣式，減少不必要的 CSS。
 - 專案內採用 theme 與 shortcut 來管理樣式。
   - theme 對應到 design token
   - shortcut 則是一個或多個樣式的設定 class
+
+---
+
+- **Theme：**
+  - UnoCSS 允許開發者自定義主題變量（例如色彩、字體大小、間距等），讓樣式變數集中管理。theme 可以設定全局樣式變量，使開發者能輕鬆調整整體風格，並支持多主題設計。
+  - 應用情境：設計多主題應用（如淺色和深色模式），或在專案中使用統一的顏色和字體設計系統。
+
+- **Shortcut：**
+  - UnoCSS 支持將多個工具類別組合成一個簡短的 class 名稱，以提升代碼的可讀性和復用性。這讓開發者可以自定義自己的 utility class，並大幅簡化複雜樣式的管理。
+  - 應用情境：適合重複使用的樣式組合，如按鈕樣式、卡片樣式等，使得常用樣式更易於維護。
 
 ---
 layout: two-cols
