@@ -8,7 +8,7 @@ drawings:
   persist: false
 mdc: true
 lineNumbers: true
-overviewSnapshots: true
+overviewSnapshots: false
 fonts:
   sans: Roboto
   serif: Roboto Slab
