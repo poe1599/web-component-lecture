@@ -207,6 +207,8 @@ left: true
 
 ---
 layout: two-cols
+leftClass: col-span-6
+rightClass: col-span-6
 ---
 
 ## Web Components 範例
@@ -317,6 +319,8 @@ layout: with-image
 
 ---
 layout: two-cols
+leftClass: col-span-6
+rightClass: col-span-6
 ---
 
 ```js {monaco-run}
@@ -375,6 +379,8 @@ customElements.define('ex-button2', ExButton2);
 
 ---
 layout: two-cols
+leftClass: col-span-6
+rightClass: col-span-6
 ---
 
 ## 無效的外部樣式控制
@@ -544,6 +550,8 @@ left: true
 
 ---
 layout: two-cols
+leftClass: col-span-6
+rightClass: col-span-6
 ---
 
 ### SCSS
