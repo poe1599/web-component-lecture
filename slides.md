@@ -652,6 +652,24 @@ $buttonHoverBg: $primaryDarkColor;
   - 應用情境：適合重複使用的樣式組合，如按鈕樣式、卡片樣式等，使得常用樣式更易於維護。
 
 ---
+layout: with-image
+left: true
+---
+
+華美投信/華昌投信
+
+- **global folder:**
+  - **theme.ts:** 用來設置不同層級的 token。
+  - **shortcut.ts:** 用來設置文字、按鈕尺寸等組合。
+  - **原子組件**
+- **project folder:**
+  - **global folder:**
+    - **theme.ts:** 用來覆蓋 global token。
+    - **shortcut.ts:** 用來覆蓋 global 組合。
+  - **theme.ts:** 用來增設專案自己的 token。
+  - **shortcut.ts:** 用來增設專案自己的組合。
+
+---
 layout: two-cols
 leftClass: col-span-5
 rightClass: col-span-7
@@ -659,14 +677,11 @@ rightClass: col-span-7
 
 #### UnoCSS Theme
 
-華美投信/華昌投信
-
-- 專案已建置 global 的 theme.ts 來設置不同層級的 token。
-- 新專案建置自身 project 的 theme.ts 時:
-  - 繼承 global theme.ts 設定
-  - 僅需調整不同配置的 token 參數
-  - 如有必要可以擴增中間層的 token
-  - 不增減組件架構 token (原則上)
+新專案建置自身 project 的 theme.ts 時:
+- 繼承 global theme.ts 設定
+- 僅需調整不同配置的 token 參數
+- 如有必要可以擴增中間層的 token
+- 不增減組件架構 token (原則上)
 
 <button class="basicButton g-body1">
   Submit
@@ -841,13 +856,10 @@ rightClass: col-span-7
 
 #### UnoCSS Shortcut
 
-華美投信/華昌投信
-
-- 專案已建置 global 的 shortcut.ts 來設置文字、按鈕尺寸等組合。
-- 新專案建置自身 project 的 shortcut.ts 時:
-  - 繼承 global shortcut.ts 設定
-  - 僅需調整不同配置的 shortcut 內容
-  - 如有必要可以擴增(視情境升版)
+新專案建置自身 project 的 shortcut.ts 時:
+- 繼承 global shortcut.ts 設定
+- 僅需調整不同配置的 shortcut 內容
+- 如有必要可以擴增(視情境升版)
 
 ::right::
 
