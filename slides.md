@@ -861,6 +861,65 @@ rightClass: col-span-7
 - 僅需調整不同配置的 shortcut 內容
 - 如有必要可以擴增(視情境升版)
 
+*****
+
+<div>
+  <div class="g-title2">title2</div>
+  <div class="g-body1">body1</div>
+</div>
+
+<style>
+  /* 編譯為 css 以後 */
+  .g-body1 {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px
+  }
+
+  /* sm: 768px 以上 */
+  @media (min-width: 768px) {
+    .g-body1 {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 24px;
+    }
+  }
+
+  /* md: 1280px 以上 */
+  @media (min-width: 1280px) {
+    .g-body1 {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 24px;
+    }
+  }
+
+  /* 編譯為 css 以後 */
+  .g-title2 {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 28px
+  }
+
+  /* sm: 768px 以上 */
+  @media (min-width: 768px) {
+    .g-title2 {
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 32px
+    }
+  }
+
+  /* md: 1280px 以上 */
+  @media (min-width: 1280px) {
+    .g-title2 {
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 36px
+    }
+  }
+</style>
+
 ::right::
 
 ````md magic-move {lines: true}
@@ -923,7 +982,7 @@ export default {
 
 ```css
 /* 編譯為 css 以後 */
-.title2 {
+.g-title2 {
   font-size: 20px;
   font-weight: 700;
   line-height: 28px
@@ -931,7 +990,7 @@ export default {
 
 /* sm: 768px 以上 */
 @media (min-width: 768px) {
-  .title2 {
+  .g-title2 {
     font-size: 24px;
     font-weight: 700;
     line-height: 32px
@@ -940,7 +999,7 @@ export default {
 
 /* md: 1280px 以上 */
 @media (min-width: 1280px) {
-  .title2 {
+  .g-title2 {
     font-size: 30px;
     font-weight: 700;
     line-height: 36px
