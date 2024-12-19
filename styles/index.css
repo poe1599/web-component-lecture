@@ -1,0 +1,35 @@
+:root {
+  --slidev-code-margin: 1rem 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+}
+
+li {
+  margin: 0.5rem;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+.slidev-layout.two-columns {
+  gap: 2rem;
+}
+
+/* 
+* monaco 編輯器的一屏高度限制
+*/
+.slidev-monaco-container-inner {
+  max-height: 420px !important;
+}
+
+/* 
+* 講者模式的視窗分配
+*/
+.grid-container.layout1 {
+  grid-template-columns: 1fr 0.8fr 1.2fr !important;
+  grid-template-rows: 0.8fr 2.2fr min-content !important;
+}
